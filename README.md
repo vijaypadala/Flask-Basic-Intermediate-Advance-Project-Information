@@ -15,6 +15,7 @@
   
   - Basic understanding of backend
        ##### Backend we are using Mysql as a database
+       - Install mysql if not present, if your using docker as service can run the command directly
        
 ### Things we are using in flask
 Maintained code more user-friendly related things
