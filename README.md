@@ -16,6 +16,29 @@
   - Basic understanding of backend
        ##### Backend we are using Mysql as a database
        
+### Things we are using in flask
+Maintained code more user-friendly related things
+     - Creating separate virtual environment and there requirements in requirements.txt
+     
+          Linux mechine or mac-os can fallow these
+               - python3 -m pip install --user virtualenv
+               - virtualenv env --python=python3
+               - source env/bin/activate
+          On windows
+               - py -m pip install --user virtualenv
+               - py -m venv env
+               - .\env\Scripts\activate
+               
+     - Sql raw queries
+     - Sql Alchemy
+     - Flask instance from Flask Module
+     - For monolithic directly accessing data to template
+     - For microservices use json response data and there status codes
+     - Jinja-2 for handling python data to template 
+     - Python3
+     
+
+       
        
 
   
