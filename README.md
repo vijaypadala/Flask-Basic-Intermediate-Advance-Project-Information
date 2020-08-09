@@ -2,11 +2,11 @@
 
 ### Discussion related to monolithic and micro-services application
 
-     #### Monolithic application design patteren
-          In these server itself handling all other services like UI, Backend ...
+#### Monolithic application design patteren
+     In these server itself handling all other services like UI, Backend ...
 
-     #### Micro-services application design patteren
-          In these server taking to other services through API calls 
+#### Micro-services application design patteren
+     In these server taking to other services through API calls 
      
 ### Things to learn before starting flask framework 
 
