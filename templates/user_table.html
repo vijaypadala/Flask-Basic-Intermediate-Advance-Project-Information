@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User table</title>
+</head>
+<body>
+    <table >
+                    <tr>
+                       <th>
+                         User Name
+                       </th> 
+                       <th>
+                         Password
+                        </th> 
+                        <th>
+                            DELETE
+                        </th>
+                    </tr>
+                    {% for user in users_info %}
+                        <tr>
+                            <td>
+                                {{user.username}}
+                            </td>
+                            <td>
+                                {{user.password}}
+                            </td>
+                            <td>
+                                <form method="POST" action="/user_table/sqlAlchemy/{{user.id}}/">
+                                    <input type="hidden" value="{{user.id}}" name="input_fields"> 
+                                    <input type="submit" value="Delete">
+                                  </form>
+                                
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+</body>
+</html>

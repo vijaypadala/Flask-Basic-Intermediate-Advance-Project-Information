@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <style>
+        .center_align{
+            display: table-cell;
+            vertical-align: middle;
+            margin: 0 auto;
+            text-align: center;
+            width: 100vw;
+            height: 100vw;
+        }
+        .bg_view{
+            background:  linear-gradient(
+            to right, 
+            rgb(211, 201, 201), 
+            #bbb0a8, 
+            rgb(184, 184, 169), 
+            rgb(167, 182, 167)
+            );
+        }
+        .center_alignment{
+            display: table-cell;
+            vertical-align: middle;
+            margin: 0 auto;
+            text-align: center;
+            width: 100vw;
+            height: 40vw;
+        }
+        .input_fields{
+            width: 50%;
+            padding: 12px;
+            font-size: 14px;
+        }
+        .btn-submit{
+            color: rgb(76, 76, 78);
+            font-size: 24px;
+            padding: 12px;
+        }
+        .btn-submit:focus,.btn-submit:active, .btn-submit:hover{
+            color: rgb(76, 76, 78);
+            font-size: 24px;
+            padding: 12px;
+        }
+    </style>
+</head>
+<body class="bg_view">
+    <br/>
+    <br/>
+    <br/>
+
+    <div>
+        <a href="/">Login Page</a>
+    </div>
+        <div  class="center_alignment">
+       
+            <div style="width: 50%;float: left;">
+                User Details Table
+
+                <form action="/user_details/sqlAlchemy/" style="border: 1px solid grey;" method="POST">
+                    <h3>
+                        User Details Table Second Table Info
+                    </h3>
+                    <input placeholder="Enter User Name" name="first_name" class="input_fields">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <input placeholder="Enter Password" name="last_name"  class="input_fields">
+                    <br/>
+                    <br>
+                    <br>
+                    <br>
+                    <input placeholder="Enter email" name="email" class="input_fields">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <input placeholder="Enter qualification" name="qualification"  class="input_fields">
+                    <br/>
+                    <br>
+                    <br>
+                    <br>
+                    <input placeholder="Enter home address" name="home_address"  class="input_fields">
+                    <br/>
+                    <br/>
+                    <br/>
+
+                    <button class="btn-submit" type="submit">
+                        Submit
+                    </button>
+
+                    {% if error %}
+                    <p>
+                        {{error}}
+                    </p>
+                    {% endif %}
+                    <br/>
+                    <br/>
+                    <br/>
+                </form>
+            </div>
+            <div style="width: 50%;float: left;">
+                User Details Table
+                {% for user in users_info %}
+                        <div>
+                            <p>
+                                FirstName:   {{user.first_name}}
+                            </p>
+                            <p>
+                                LastName:  {{user.last_name}}
+                            </p>
+                            <p>
+                                Email:   {{user.first_name}}
+                            </p>
+                            <p>
+                                Addres:  {{user.last_name}}
+                            </p>
+                            <p>
+                                Qualification:  {{user.last_name}}
+                            </p>
+                        </div>
+                        <hr>
+                    {% endfor %}
+                
+            </div>
+               
+        </div>
+        
+</body>
+</html>
