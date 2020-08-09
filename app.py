@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 from flask_mysqldb import MySQL
 from flask_sqlalchemy import SQLAlchemy
-# from flask import session, Flask, jsonify, request, Response, render_template, render_template_string, url_for
 app = Flask(__name__)
 
 # app.config['MYSQL_HOST'] = '127.0.0.1'
@@ -11,20 +10,15 @@ app = Flask(__name__)
 # app.config['MYSQL_PORT'] = 3306
 # app.config['DEBUG'] = True
 
-
-
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@127.0.0.1/flask_test'
-# app.config['SECRET_KEY_HMAC'] = 'ITMUSTBESECRET'
-# app.config['SECRET_KEY_HMAC_2'] = 'SECONDSECRET'
-# app.secret_key = 'KEYFORSECRET'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-
 db = SQLAlchemy(app)
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    username = db.Column(db.String(80), unique = True)
-    password = db.Column(db.String(80), unique = True)
+    username = db.Column(db.String(30), unique = True)
+    password = db.Column(db.String(30), unique = True)
 
 
     def __repr__(self):
@@ -32,13 +26,11 @@ class User(db.Model):
 
 class Customer(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    first_name = db.Column(db.String(80))
-    last_name = db.Column(db.String(80))
-    email = db.Column(db.String(80))
-    ccn = db.Column(db.String(80), nullable = True)
-    username = db.Column(db.String(80))
-    password = db.Column(db.String(150))
-
+    first_name = db.Column(db.String(30))
+    last_name = db.Column(db.String(30))
+    email = db.Column(db.String(200))
+    username = db.Column(db.String(30))
+    password = db.Column(db.String(30))
 
     # def __repr__(self):
     #     return "<User {0} {1}>".format(self.first_name, self.last_name)
@@ -82,26 +74,18 @@ def dashboard():
 @app.route('/dashboard/sqlAlchemy/', methods = ['GET','POST'])
 def dashboard_alchemy():
     if request.method == 'POST':
-        try:
             cust = Customer()
-            cust.first_name = "FIRSTNAME"
+            cust.first_name = "FIRST NAME"
             cust.last_name = "LAST NAME"
-            cust.email = "vijay@viajy.com"
-            cust.username = "UNAME"
+            cust.email = "vijay015125@gmail.com"
+            cust.username = "Vijay"
             cust.password = "PASS"
-            cust.ccn = "CREAD"
             db.session.add(cust)
             db.session.commit()
-            print("cust", cust)
-
             return("RECORDED")
-        except Exception as e:
-            print("EXCEPTION e", e)
-            return("IN EXCEPTION AS E",e)
         return render_template('index.html')
     elif request.method == 'GET':
         return render_template('index.html')
-
 
 
 if __name__ == '__main__':
