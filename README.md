@@ -11,10 +11,10 @@
 ### Things to learn before starting flask framework 
 
   - Basic understanding of frontend
-      Frontend we are using  HTML, CSS and Javascript 
+       ##### Frontend we are using  HTML, CSS and Javascript 
   
   - Basic understanding of backend
-       Backend we are using Mysql as a database
+       ##### Backend we are using Mysql as a database
        
        
 
