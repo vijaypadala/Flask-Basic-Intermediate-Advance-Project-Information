@@ -18,7 +18,7 @@
        
 ### Things we are using in flask
 Maintained code more user-friendly related things
-          #### Creating separate virtual environment and there requirements in requirements.txt
+#### Creating separate virtual environment and there requirements in requirements.txt
      
           Linux mechine or mac-os can fallow these
                - python3 -m pip install --user virtualenv
@@ -30,7 +30,7 @@ Maintained code more user-friendly related things
                - .\env\Scripts\activate
           - pip install requirements.txt
           - python3 app.py
-               
+#### Things focused on code
      - Sql raw queries
      - Sql Alchemy
      - Flask instance from Flask Module
