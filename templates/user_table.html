@@ -4,8 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User table</title>
+    <style>
+         .bg_view{
+            background:  linear-gradient(
+            to right, 
+            rgb(211, 201, 201), 
+            #bbb0a8, 
+            rgb(184, 184, 169), 
+            rgb(167, 182, 167)
+            );
+        }
+        .center_alignment{
+            display: table-cell;
+            vertical-align: middle;
+            margin: 0 auto;
+            text-align: center;
+            width: 100vw;
+            height: 40vw;
+        }
+        .input_fields{
+            width: 50%;
+            padding: 12px;
+            font-size: 14px;
+        }
+        .btn-submit{
+            color: rgb(76, 76, 78);
+            font-size: 24px;
+            padding: 12px;
+        }
+        .btn-submit:focus,.btn-submit:active, .btn-submit:hover{
+            color: rgb(76, 76, 78);
+            font-size: 24px;
+            padding: 12px;
+        }
+    </style>
 </head>
-<body>
+<body class="bg_view">
+    <br/>
+    <br/>
+    <br/>
+
+    <div>
+        <a href="/">Login Page</a>
+        <br/>
+        <a href="/user_details/sqlAlchemy/">User Details Page</a>
+
+    </div>
     <table >
                     <tr>
                        <th>

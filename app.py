@@ -136,7 +136,7 @@ def user_details_table_post_function():
     """
         These function is used to post the data to UserDetails table taking data from front-end
     """
-    query = UserDetails.query.all()[::-1]
+    
     if request.method == 'POST':
         try:
             #taking data from html page
@@ -154,10 +154,13 @@ def user_details_table_post_function():
             userDetails.email = email
             db.session.add(userDetails)
             db.session.commit()
+            query = UserDetails.query.all()[::-1]
             return render_template('user_details.html',error='Added successfully',users_info=query)
         except Exception as e:
-            return render_template('user_details.html',error='Error {0}'.format(e))
+            query = UserDetails.query.all()[::-1]
+            return render_template('user_details.html',error='Error {0}'.format(e),users_info=query)
     else:
+        query = UserDetails.query.all()[::-1]
         return render_template('user_details.html',error='',users_info=query)
 
 
