@@ -1,9 +1,11 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from flask_mysqldb import MySQL
 from flask_sqlalchemy import SQLAlchemy
 import settings
 app = Flask(__name__)
 
+
+# mysql raw queries format
 def mysql_raw_connection():
     """
         Used for connecting with mysql database if not using SQLAlchemy can go with 
@@ -16,21 +18,22 @@ def mysql_raw_connection():
     app.config['MYSQL_PORT'] = settings.mysql_port
     return(1)
 
-# mysql_raw_connection()
-# def create_tables():
-#     """
-#         if we are using raw mysql instead of sqlalchemy we are using these to create table
-#     """
-#     with app.app_context():
-#         mysql = MySQL(app)
-#         cur = mysql.connection.cursor()
-#         cur = mysql.connection.cursor()
-#         cur.execute("DROP TABLE IF EXISTS raw_query_user_table")
-#         cur.execute("CREATE TABLE raw_query_user_table (name VARCHAR(255), address VARCHAR(255))")
-#         mysql.connection.commit()
-#         cur.close()
-# create_tables()
+mysql_raw_connection()
+def create_tables():
+    """
+        if we are using raw mysql instead of sqlalchemy we are using these to create table
+    """
+    with app.app_context():
+        mysql = MySQL(app)
+        cur = mysql.connection.cursor()
+        cur = mysql.connection.cursor()
+        cur.execute("DROP TABLE IF EXISTS raw_query_user_table")
+        cur.execute("CREATE TABLE raw_query_user_table (name VARCHAR(255), address VARCHAR(255))")
+        mysql.connection.commit()
+        cur.close()
+create_tables()
 
+#sql alchemy connection
 def mysql_alchemy():
     """
         These function used to link sql alchemy with the database
@@ -164,7 +167,27 @@ def user_details_table_post_function():
         return render_template('user_details.html',error='',users_info=query)
 
 
+
 #implementation Microservices application
+
+@app.route('/microservices/crud/', methods = ['GET','POST','DELETE','PUT'])
+def basic_get_post_method():
+    """
+        These function is used to post
+        and get
+    """
+    if request.method == 'POST':
+        content = request.json
+        print(content)
+        return jsonify({'post': 'IN POST'}),200
+    if request.method == 'GET':
+        return jsonify({'get': 'IN POST'}),200
+    if request.method == 'DELETE':
+        return jsonify({'delete': 'IN POST'}),200
+    if request.method == 'PUT':
+        return jsonify({'put': 'IN POST'}),200
+
+
 
 if __name__ == '__main__':
     app.run(debug = True, host = '0.0.0.0', port = 5000)
