@@ -30,7 +30,7 @@ Maintained code more user-friendly related things
                - py -m pip install --user virtualenv
                - py -m venv env
                - .\env\Scripts\activate
-          - pip install requirements.txt
+          - pip install -r requirements.txt
           - python3 app.py
 #### Things focused on code
      - Sql raw queries
